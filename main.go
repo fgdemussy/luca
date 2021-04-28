@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/fgdemussy/luca/ledger"
+)
 
 func main() {
-	fmt.Println("hey Luca")
+	fmt.Println("START")
+	a := ledger.Account{Name: "Hola"}
+	fmt.Println(a.GetName())
 }
