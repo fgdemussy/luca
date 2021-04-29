@@ -11,7 +11,7 @@ type Currency struct {
 	Name    string `xml:"CcyNm"`
 }
 
-func get() (*[]Currency, error) {
+func Getall() (*[]Currency, error) {
 	var list struct {
 		Currencies []Currency `xml:"CcyNtry"`
 	}
