@@ -2,23 +2,20 @@ package ledger
 
 import (
 	"testing"
-
-	qt "github.com/frankban/quicktest"
 )
 
 func TestNewEntry(t *testing.T) {
-	t.Run("should return a new Entry with provided Account", func(t *testing.T) {
-		c := qt.New(t)
-		a := &Account{}
-		got, err := a.NewEntry(0, 0, "USD")
-		c.Assert(got, qt.DeepEquals, &Entry{a, 0, 0, "USD"})
-		c.Assert(err, qt.IsNil)
-	})
-	t.Run("should provide a currency", func(t *testing.T) {
-		c := qt.New(t)
-		a := &Account{}
-		got, err := a.NewEntry(0, 0, "")
-		c.Assert(got, qt.IsNil)
-		c.Assert(err.Error(), qt.Contains, "currency is needed")
-	})
+	a := &Account{}
+	got, err := a.NewEntry(0, 0, "USD")
+	if err != nil {
+		t.Errorf("Should've created a NewEntry: %v, but got error: %v", got, err)
+	}
+	if got == nil {
+		t.Error("Should've created a NewEntry, but got nil")
+	}
+
+	got, err = a.NewEntry(0, 0, "")
+	if err == nil {
+		t.Errorf("Should've failed creating NewEntry, but got: %v", got)
+	}
 }
