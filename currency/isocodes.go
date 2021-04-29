@@ -1,5 +1,6 @@
 package currency
 
+// Data is an xml formatted string containing all ISO 4217 codes
 const Data = `
 <CcyTbl>
 <CcyNtry>

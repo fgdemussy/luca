@@ -5,12 +5,16 @@ import (
 	"fmt"
 )
 
+// Currency wraps ISO 4217 names and codes
+// https://github.com/datasets/currency-codes
 type Currency struct {
 	Code    string `xml:"Ccy"`
 	Country string `xml:"CtryNm"`
 	Name    string `xml:"CcyNm"`
+	Unit    int
 }
 
+// Getall returns a list of available Currencies
 func Getall() (*[]Currency, error) {
 	var list struct {
 		Currencies []Currency `xml:"CcyNtry"`
