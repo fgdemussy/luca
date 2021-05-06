@@ -9,5 +9,5 @@ import (
 func main() {
 	fmt.Println("START")
 	a := ledger.Account{Name: "Hola"}
-	fmt.Println(a.GetName())
+	fmt.Println(a.Name())
 }
