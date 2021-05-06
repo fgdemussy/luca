@@ -6,25 +6,6 @@ import (
 	"github.com/Rhymond/go-money"
 )
 
-const (
-	debit  = "debit"
-	credit = "credit"
-)
-
-// Operation represents valid accounting operations "credit" and "debit"
-type Operation struct {
-	name string
-}
-
-var operations = map[string]*Operation{
-	debit:  {debit},
-	credit: {credit},
-}
-
-func getOperation(name string) *Operation {
-	return operations[name]
-}
-
 // Entry represents a value entry (money) on a given Account
 type Entry struct {
 	*Account
