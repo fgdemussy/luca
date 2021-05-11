@@ -13,7 +13,7 @@ type Entry struct {
 	*Operation
 }
 
-// NewEntry returns a new Entry representing a value operation on a given Account
+// NewEntry returns a new Entry representing an operation on a given Account
 func (a *Account) NewEntry(operation string, amount int64, code string) (*Entry, error) {
 	o := getOperation(operation)
 	if o == nil {
